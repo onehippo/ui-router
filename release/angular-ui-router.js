@@ -1,6 +1,6 @@
 /**
  * State-based routing for AngularJS
- * @version v0.2.0-dev-2013-11-26
+ * @version v0.2.0-dev-2013-11-28
  * @link http://angular-ui.github.com/
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -1561,9 +1561,7 @@ function $StateRefDirective($state) {
       if (isForm) return;
 
       element.bind("click", function(e) {
-        var button = e.which || e.button;
-
-        if ((button == 1) && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
           $state.go(ref.state, params, { relative: base });
           scope.$apply();
           e.preventDefault();
