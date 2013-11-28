@@ -44,9 +44,7 @@ function $StateRefDirective($state) {
       if (isForm) return;
 
       element.bind("click", function(e) {
-        var button = e.which || e.button;
-
-        if ((button == 1) && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+        if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
           $state.go(ref.state, params, { relative: base });
           scope.$apply();
           e.preventDefault();
